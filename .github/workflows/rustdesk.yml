@@ -45,7 +45,7 @@ jobs:
           # Example: pyautogui.click(x=1200, y=50)
 
           # Option 2: Try to find the 3-dot image on the screen
-          # You must provide 'three_dot.png' (the image of the 3-dot menu button) in your repository or workspace.
+          # You must provide '3dot.PNG' (the image of the 3-dot menu button) in your repository or workspace.
           try:
               location = pyautogui.locateCenterOnScreen('dotm.png', confidence=0.8)
               if location:
