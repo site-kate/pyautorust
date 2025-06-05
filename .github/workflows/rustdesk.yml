@@ -22,10 +22,10 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install pyautogui and pillow
+      - name: Install pyautogui, pillow, and opencv-python
         run: |
           python -m pip install --upgrade pip
-          pip install pyautogui pillow
+          pip install pyautogui pillow opencv-python
 
       - name: Start RustDesk
         shell: pwsh
@@ -45,9 +45,9 @@ jobs:
           # Example: pyautogui.click(x=1200, y=50)
 
           # Option 2: Try to find the 3-dot image on the screen
-          # Save a reference image "three_dot.png" in the repo or workspace
+          # You must provide 'three_dot.png' (the image of the 3-dot menu button) in your repository or workspace.
           try:
-              location = pyautogui.locateCenterOnScreen('threedot.png', confidence=0.8)
+              location = pyautogui.locateCenterOnScreen('three_dot.png', confidence=0.8)
               if location:
                   pyautogui.moveTo(location)
                   pyautogui.click()
