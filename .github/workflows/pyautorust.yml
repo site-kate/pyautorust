@@ -89,9 +89,3 @@ jobs:
         with:
           name: windows-screenshot
           path: screenshot.png
-
-      - name: Keep Runner Alive for 4 Hours
-        shell: pwsh
-        run: |
-          Write-Host "Keeping the runner alive for 4 hours..."
-          Start-Sleep -Seconds 14400  # 4 hours
