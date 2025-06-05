@@ -71,6 +71,25 @@ jobs:
           except Exception as e:
               print("Error locating Security menu:", e)
 
+      - name: Select Enable Remote Config Mod with pyautogui
+        shell: python
+        run: |
+          import pyautogui
+          import time
+
+          time.sleep(2)  # Wait for security menu to open
+
+          try:
+              location = pyautogui.locateCenterOnScreen('ena.png', confidence=0.8)
+              if location:
+                  pyautogui.moveTo(location)
+                  pyautogui.click()
+                  print("Clicked Enable Remote Config Mod at:", location)
+              else:
+                  print("Enable Remote Config Mod button not found on screen.")
+          except Exception as e:
+              print("Error locating Enable Remote Config Mod button:", e)
+
       - name: Take Screenshot via PowerShell
         shell: pwsh
         run: |
