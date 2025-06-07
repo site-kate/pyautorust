@@ -1,4 +1,4 @@
-name: Runner with RustDesk
+name: RustDesk clean
 
 on:
   workflow_dispatch:
