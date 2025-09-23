@@ -14,6 +14,10 @@ jobs:
 
       - name: OpenVPN Connect Windows
         uses: jworford/github-openvpn-windows-action@v1
+        with:
+          config: ${{ secrets.OPENVPN_CONFIG }}
+          username: ${{ secrets.OPENVPN_USERNAME }}
+          password: ${{ secrets.OPENVPN_PASSWORD }}
 
       - name: Download RustDesk
         shell: pwsh
