@@ -1,4 +1,4 @@
-name: RustDesk with apps v2.6.1
+name: Rust v2.6.1deprecated
 
 on:
   workflow_dispatch:
@@ -22,10 +22,18 @@ jobs:
         run: |
           Invoke-WebRequest -Uri "https://github.com/NobilityDeviant/ZenDownloader/releases/download/1.2.2/ZenDownloader-1.2.2.exe" -OutFile "$env:USERPROFILE\Desktop\ZenDownloader-1.1.14.exe"
           Invoke-WebRequest -Uri "https://github.com/manga-download/hakuneko/releases/download/v6.1.7/hakuneko-desktop_6.1.7_windows-setup_amd64.exe" -OutFile "$env:USERPROFILE\Desktop\hakuneko-desktop_6.1.7_windows-setup_amd64.exe"
-          Invoke-WebRequest -Uri "https://github.com/b3h1m0th/redesigned/releases/download/in/BlueStacksInstaller.exe" -OutFile "$env:USERPROFILE\Desktop\bluestacks.exe"
           Invoke-WebRequest -Uri "https://github.com/aclap-dev/vdhcoapp/releases/download/v2.0.19/vdhcoapp-windows-x86_64-installer.exe" -OutFile "$env:USERPROFILE\Desktop\vdhcoapp.exe"
           Invoke-WebRequest -Uri "https://github.com/duncanthrax/scream/releases/download/4.0/Scream4.0.zip" -OutFile "$env:USERPROFILE\Desktop\scream4.zip"
+          Invoke-WebRequest -Uri "https://raw.githubusercontent.com/b3h1m0th/studious-engine/45174689b7e604f00651291a05fa12e4ed0d5eab/Hide.me-Setup-4.3.1.exe" -OutFile "$env:USERPROFILE\Desktop\Hide.me-Setup-4.3.1.exe"
+     
+      - name: Download Hide.me-Setup-4.3.1.exe      
+        run: |
+          curl -L -o Hide.me-Setup-4.3.1.exe "https://raw.githubusercontent.com/b3h1m0th/studious-engine/45174689b7e604f00651291a05fa12e4ed0d5eab/Hide.me-Setup-4.3.1.exe"
           
+          
+      - name: List downloaded file
+        run: dir Hide.me-Setup-4.3.1.exe    
+        
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
