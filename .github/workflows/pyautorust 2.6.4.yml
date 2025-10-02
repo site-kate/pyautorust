@@ -20,7 +20,7 @@ jobs:
       - name: Download Apps to Desktop
         shell: pwsh
         run: |
-          Invoke-WebRequest -Uri "https://github.com/NobilityDeviant/ZenDownloader/releases/download/1.2.2/ZenDownloader-1.2.2.exe" -OutFile "$env:USERPROFILE\Desktop\ZenDownloader-1.1.14.exe"
+          Invoke-WebRequest -Uri "https://github.com/NobilityDeviant/ZenDownloader/releases/download/1.2.7/ZenDownloader-windows-amd64.zip" -OutFile "$env:USERPROFILE\Desktop\ZenDownloader.zip"
           Invoke-WebRequest -Uri "https://github.com/manga-download/hakuneko/releases/download/v6.1.7/hakuneko-desktop_6.1.7_windows-setup_amd64.exe" -OutFile "$env:USERPROFILE\Desktop\hakuneko-desktop_6.1.7_windows-setup_amd64.exe"
           Invoke-WebRequest -Uri "https://github.com/aclap-dev/vdhcoapp/releases/download/v2.0.19/vdhcoapp-windows-x86_64-installer.exe" -OutFile "$env:USERPROFILE\Desktop\vdhcoapp.exe"
           Invoke-WebRequest -Uri "https://github.com/duncanthrax/scream/releases/download/4.0/Scream4.0.zip" -OutFile "$env:USERPROFILE\Desktop\scream4.zip"
