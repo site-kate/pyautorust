@@ -1,4 +1,4 @@
-name: 11d35k amd64 0.0.1
+name: 11d35k amd64 0.0.5
 
 on:
   workflow_dispatch:
@@ -11,7 +11,7 @@ jobs:
       - name: Run container
         run: |
           sudo apt-get update -y
-          sudo apt-get install lbzip2 tilix xfce4 tigervnc-standalone-server -y
+          sudo apt-get install lbzip2 xfce4 tigervnc-standalone-server -y
           echo "xfce4-session" > ~/.xsession
           sudo apt-get -y install novnc python3-websockify python3-numpy
           mkdir rust && cd rust
