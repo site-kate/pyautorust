@@ -1,0 +1,43 @@
+name: m4k2
+
+on:
+  workflow_dispatch:
+
+jobs:
+  m4k2:
+    runs-on: macos-latest
+    timeout-minutes: 240  # Keep runner alive for 4 hours
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download RustDesk for macOS
+        run: |
+          curl -L "https://github.com/rustdesk/rustdesk/releases/download/1.4.2/rustdesk-1.4.2-x86_64.dmg" -o "$GITHUB_WORKSPACE/rustdesk.dmg"
+          hdiutil attach "$GITHUB_WORKSPACE/rustdesk.dmg"
+          cp -R "/Volumes/rustdesk-1.4.2/RustDesk.app" "/Applications/"
+        
+      - name: Start RustDesk
+        run: |
+          mdfind "kMDItemFSName == '*RustDesk*'" | while read -r app; do open -a "$app"; done
+          sleep 10  # Give RustDesk a moment to start
+          
+      - name: Capture Screenshot
+        run: |
+          # Give the app a moment to render its UI
+          sleep 5
+          # Capture the entire screen and store it in the workspace
+          screencapture -x "$GITHUB_WORKSPACE/screenshot.png"
+          echo "Screenshot saved to $GITHUB_WORKSPACE/screenshot.png"
+
+      - name: Upload Screenshot Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: macos-screenshot
+          path: screenshot.png
+
+      - name: Keep runner alive for 4 hours
+        run: |
+          echo "Sleeping for 4 hours to keep session active..."
+          sleep 14400
